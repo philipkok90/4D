@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="Context1-Web.config Connection String" description="Context1 Connection String used in web.config by the application to access the database." defaultValue="Data Source=43.255.152.26;Initial Catalog=4D;Integrated Security=False;Persist Security Info=False;User ID=looyee;Password=loong424;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\user\\Desktop\\Looyee\\Triple\ Link\\4D\\4D\\4D\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Context1']/@connectionString" />
+  </parameter>
+</parameters>
