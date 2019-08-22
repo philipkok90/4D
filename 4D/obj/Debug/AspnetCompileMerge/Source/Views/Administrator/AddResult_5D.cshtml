@@ -1,0 +1,78 @@
+﻿@model _4D.Models.Result_5D
+@{
+    ViewBag.Title = "Add Result 5D";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("AddResult_5D", "Administrator", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-4">
+            @Html.DropDownListFor(m => m.ResultType, new List<SelectListItem>
+                {
+                   new SelectListItem{Text="TOTO", Value="TOTO"}
+                }, new { @class = "form-control" })
+        </div>
+
+        <div class="col-md-4">
+            @Html.TextBoxFor(m => m.ResultDate, new { placeholder = "dd/mm/yyyy", @Class = "form-control", @type = "date" })
+
+        </div>
+
+        <div class="col-md-4">
+            <button class="au-btn au-btn--block au-btn--green m-b-20" id="form_submit" type="submit">Search</button>
+        </div>
+
+    </div>
+}
+<br />
+@using (Html.BeginForm("AddResultRecord_5D", "Administrator", FormMethod.Post))
+{
+    if (ViewBag.Valid != "" && ViewBag.Valid != null)
+    {
+        @Html.HiddenFor(m => m.ResultType)
+        @Html.HiddenFor(m => m.ResultDate)
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body card-block">
+                        <div class="form-group">
+                            <label for="cc-payment" class="control-label mb-1">头奖</label>
+                            @Html.TextBoxFor(m => m.F1, new { placeholder = "头奖", @Class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label for="cc-payment" class="control-label mb-1">二奖</label>
+                            @Html.TextBoxFor(m => m.F2, new { placeholder = "二奖", @Class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label for="cc-payment" class="control-label mb-1">三奖</label>
+                            @Html.TextBoxFor(m => m.F3, new { placeholder = "三奖", @Class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label for="cc-payment" class="control-label mb-1">四奖</label>
+                            @Html.TextBoxFor(m => m.F4, new { placeholder = "四奖", @Class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label for="cc-payment" class="control-label mb-1">五奖</label>
+                            @Html.TextBoxFor(m => m.F5, new { placeholder = "五奖", @Class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label for="cc-payment" class="control-label mb-1">六奖</label>
+                            @Html.TextBoxFor(m => m.F6, new { placeholder = "六奖", @Class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <button class="au-btn au-btn--block au-btn--green m-b-20" id="form_submit" type="submit">Submit</button>
+
+
+        </div>
+    }
+
+
+
+}

@@ -1,0 +1,51 @@
+﻿@model _4D.Models.Banner
+@{
+    ViewBag.Title = "Edit Banner";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">Edit Banner</div>
+            <div class="card-body">
+
+                @using (Html.BeginForm("EditTopBanner", "Administrator", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <div class="form-group">
+                        <label for="cc-payment" class="control-label mb-1">Description</label>
+                        @Html.TextBoxFor(m => m.Description, null, new { @class = "form-control", Placeholder = "Description" })
+                        @Html.HiddenFor(m => m.Srno)
+                    </div>
+                    <div class="form-group">
+                        <label for="cc-payment" class="control-label mb-1">Sequence Arrange</label>
+                        @Html.TextBoxFor(m => m.SequenceArrange, null, new { @class = "form-control", Placeholder = "Sequence Arrange", @type = "number" })
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cc-payment" class="control-label mb-1">URL Path</label>
+                        @Html.TextBoxFor(m => m.UrlPath, null, new { @class = "form-control", Placeholder = "Url Path" })
+                        @Html.HiddenFor(m => m.UploadedPath)
+                    </div>
+                    <div class="form-group">
+                        <label for="cc-payment" class="control-label mb-1">Status</label>
+                        @Html.DropDownListFor(m => m.Status, new List<SelectListItem>
+                            { new SelectListItem{Text="ACTIVE", Value="ACTIVE",Selected=ViewBag.StatusActive},
+                               new SelectListItem{Text="IN-ACTIVE", Value="IN-ACTIVE",Selected=ViewBag.StatusInActive}}, new { @class = "form-control" })
+                    </div>
+
+                    <div class="form-group">
+                        <img style="height:100px;width:auto" src="@ViewBag.uploadPath" />
+                        @Html.TextBox("file", "", new { type = "file" })
+                    </div>
+
+                    <button class="au-btn au-btn--block au-btn--green m-b-20" id="form_submit" type="submit">Edit</button>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

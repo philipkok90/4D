@@ -31,8 +31,44 @@ namespace _4D.Models
         public string T8 { get; set; }
         public string T9 { get; set; }
         public string T10 { get; set; }
-         
+        public string F_3D_1 { get; set; }
+        public string F_3D_2 { get; set; }
+        public string F_3D_3 { get; set; }
+
         public List<Results> Results_List { get; set; }
+        public Results()
+        {
+            Srno = 0;
+            ResultDate = "";
+            ResultType = "";
+            Status = "";
+            F1 = "-";
+            F2 = "-";
+            F3 = "-";
+            S1 = "-";
+            S2 = "-";
+            S3 = "-";
+            S4 = "-";
+            S5 = "-";
+            S6 = "-";
+            S7 = "-";
+            S8 = "-";
+            S9 = "-";
+            S10 = "-";
+            T1 = "-";
+            T2 = "-";
+            T3 = "-";
+            T4 = "-";
+            T5 = "-";
+            T6 = "-";
+            T7 = "-";
+            T8 = "-";
+            T9 = "-";
+            T10 = "-";
+            F_3D_1 = "-";
+            F_3D_2 = "-";
+            F_3D_3 = "-";
+        }
 
     }
 }

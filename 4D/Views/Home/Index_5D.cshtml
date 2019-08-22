@@ -1,0 +1,170 @@
+﻿@using _4D.Controllers
+@model _4D.Models.Result_5D
+
+@{
+    Layout = null;
+    ViewBag.Title = "4D Hit";
+}
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>4D</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="The most complete 4D result site Singapore and Malaysia, live result, 3D 4D 5D 6D Jackpot all in one website.">
+    <meta name="keywords" content="4D Result, 4D live, Toto 4D, Magnum, Damacai, Lottery Result, Singapore 4D, Sabah 4D, Sandakan 4d, 4D Past Result, Cashsweep">
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="~/Content/V2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/V2/css/compiled-4.8.0.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/V2/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/V2/css/main.css">
+    <!-- End CSS -->
+    <!-- JS -->
+    <script type="text/javascript" src="~/Content/V2/js/jquery-3.3.0.min.js"></script>
+    <script type="text/javascript" src="~/Content/V2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Content/V2/js/main.js"></script>
+    <!-- End JS -->
+</head>
+
+<body>
+    <!--Navbar-->
+    @using (Html.BeginForm("Index_5D", "Home", FormMethod.Post))
+    {
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <!-- Navbar brand -->
+                <a class="navbar-brand" href="#"><img src="~/Content/images/icon/logo-mini.png"></a>
+                <!-- Collapse button -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- Collapsible content -->
+                <div class="collapse navbar-collapse" id="basicExampleNav">
+                    <!-- Links -->
+
+
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link">
+                                @Html.TextBoxFor(m => m.ResultDate, new { placeholder = "dd/mm/yyyy", @Class = "form-control", @type = "date" })
+                            </a>
+                        </li>
+                        <li class="nav-item" style="padding:10px">
+                            <button class="au-btn au-btn--block au-btn--green m-b-20" id="form_submit" type="submit" style="padding:5px">Search</button>
+                        </li>
+
+
+                        <li class="nav-item" style="padding:10px">
+                            <a class="nav-link" href="../Home/Index_3D">3D</a>
+                        </li>
+
+
+                        <li class="nav-item" style="padding:10px">
+                            <a class="nav-link" href="../Home/Index">4D</a>
+                        </li>
+
+
+                        <li class="nav-item" style="padding:10px">
+                            <a class="nav-link" href="../Home/Index_5D">5D</a>
+                        </li>
+
+
+                        <li class="nav-item" style="padding:10px">
+                            <a class="nav-link" href="../Home/Index_6D">6D</a>
+                        </li>
+                    </ul>
+                    <!-- Links -->
+
+
+                </div>
+                <!-- Collapsible content -->
+            </div>
+        </nav>
+    }
+    <!--/.Navbar-->
+    <div class="container">
+        <div class="row">
+
+
+            <div class="col-md-4">
+                <div class="number_box">
+                    <div class="number_header light_red">
+                        <img src="~/Content/V2/images/4D_toto.png">
+                        @HomeController.convert_YYYY_MM_DD(ViewBag.LatestDate) (<b>@DateTime.Parse(HomeController.convert_YYYY_MM_DD(ViewBag.LatestDate)).DayOfWeek.ToString().Substring(0, 3).ToUpper()</b>)
+                    </div>
+                    <div class="number_body" style="border-bottom:1px solid rgba(54,54,54,.5)">
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <p>头奖</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="special">@ViewBag.Toto.F1</p>
+                            </div>
+                            <div class="col-6">
+                                <p>二奖</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="special">@ViewBag.Toto.F2</p>
+                            </div>
+                            <div class="col-6">
+                                <p>三奖</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="special">@ViewBag.Toto.F3</p>
+                            </div>
+
+                            <div class="col-6">
+                                <p>四奖</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="special">@ViewBag.Toto.F3</p>
+                            </div>
+
+                            <div class="col-6">
+                                <p>五奖</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="special">@ViewBag.Toto.F4</p>
+                            </div>
+
+                            <div class="col-6">
+                                <p>六奖</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="special">@ViewBag.Toto.F5</p>
+                            </div>
+                        </div>
+                    </div>
+                     
+                     
+                </div>
+            </div>
+
+
+             
+
+
+
+
+
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+

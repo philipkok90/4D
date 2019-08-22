@@ -1,0 +1,136 @@
+/* poppins-regular - latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/poppins-v6-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Poppins Regular'), local('Poppins-Regular'),
+       url('../fonts/poppins-v6-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/poppins-v6-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/poppins-v6-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/poppins-v6-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/poppins-v6-latin-regular.svg#Poppins') format('svg'); /* Legacy iOS */
+}
+/* poppins-italic - latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: italic;
+  font-weight: 400;
+  src: url('../fonts/poppins-v6-latin-italic.eot'); /* IE9 Compat Modes */
+  src: local('Poppins Italic'), local('Poppins-Italic'),
+       url('../fonts/poppins-v6-latin-italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/poppins-v6-latin-italic.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/poppins-v6-latin-italic.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/poppins-v6-latin-italic.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/poppins-v6-latin-italic.svg#Poppins') format('svg'); /* Legacy iOS */
+}
+/* poppins-500 - latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../fonts/poppins-v6-latin-500.eot'); /* IE9 Compat Modes */
+  src: local('Poppins Medium'), local('Poppins-Medium'),
+       url('../fonts/poppins-v6-latin-500.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/poppins-v6-latin-500.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/poppins-v6-latin-500.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/poppins-v6-latin-500.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/poppins-v6-latin-500.svg#Poppins') format('svg'); /* Legacy iOS */
+}
+/* poppins-700 - latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/poppins-v6-latin-700.eot'); /* IE9 Compat Modes */
+  src: local('Poppins Bold'), local('Poppins-Bold'),
+       url('../fonts/poppins-v6-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/poppins-v6-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/poppins-v6-latin-700.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/poppins-v6-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/poppins-v6-latin-700.svg#Poppins') format('svg'); /* Legacy iOS */
+}
+
+html, body{
+    font-family: 'Poppins', "微软雅黑", STXihei, "华文细黑", sans-serif;
+}
+
+.number_box{
+    margin-bottom: 15px;
+    background-color: white;
+    text-align: center;
+}
+
+.number_header{
+    padding: 15px;
+    background-color: #111;
+    color: white;
+    font-size: 12px;
+    text-align: right;
+    position: relative;
+}
+
+.number_header.blue{background-color: #0f1468}
+.number_header.light_red{background-color: #ed363f}
+.number_header.dark_green{background-color: #083e04}
+.number_header.green{background-color: #2f9505}
+.number_header.light_blue{background-color: #12689b}
+.number_header.red{background-color: #e02217}
+.number_header.yellow{background-color: #d1a700}
+
+.number_header img{
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 60px;
+}
+
+.number_body{
+    padding: 5px 15px;
+    border-left: 1px solid rgba(54,54,54,.5);
+    border-right: 1px solid rgba(54,54,54,.5);
+}
+
+.number_body p{
+    font-size: 14px;
+    margin: 3px 0;
+    line-height: 15px;
+    font-weight: bold;
+}
+
+.number_body p.special{
+    padding: 5px;
+    border: 1px solid black;
+}
+
+.number_table table{
+    width: 100%;
+}
+
+.number_table table tr td{
+    border: 1px solid #999;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.td_header{
+    background-color: #2c9402;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+td.blank{
+    background-color: #999;
+}
+
+.navbar{
+    background-color: #111;
+    margin-bottom: 20px;
+}
+
+.navbar-brand img{
+    height: 40px !important;
+}

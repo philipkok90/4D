@@ -1,0 +1,46 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IEnumerable<_4D.Models.Banner>
+@{
+    ViewBag.Title = "Add Banner";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-12" style="margin-bottom:10px">
+        <div class="overview-wrap">
+            <h2 class="title-1">Banner List</h2>
+            <a class="au-btn--green" style="padding:5px" href="~/Administrator/AddTopBanner">Add New</a>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="table-responsive table--no-card m-b-30">
+            <table class="table table-borderless table-striped table-earning">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Image</th>
+                        <th>Description</th>
+                        <th>Sequence</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Srno</td>
+                            <td><img src="@item.UploadedPath" style="height:50px;width:auto" /></td>
+                            <td>@item.Description</td>
+                            <td>@item.SequenceArrange</td>
+                            <td>@item.Status</td>
+                            <td><a href="@Url.Action("EditTopBanner", "Administrator", new { Srno = item.Srno })">View</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

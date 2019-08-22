@@ -1,0 +1,156 @@
+﻿@model _4D.Models.Result_Damacai
+@{
+    ViewBag.Title = "Add Damacai Result";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("AddResult_Damacai", "Administrator", FormMethod.Post))
+{
+    <div class="row"> 
+
+        <div class="col-md-4">
+            @Html.TextBoxFor(m => m.ResultDate, new { placeholder = "dd/mm/yyyy", @Class = "form-control", @type = "date" })
+
+        </div>
+
+        <div class="col-md-4">
+            <button class="au-btn au-btn--block au-btn--green m-b-20" id="form_submit" type="submit">Search</button>
+        </div>
+
+    </div>
+}
+<br />
+@using (Html.BeginForm("AddResultDamacaiRecord", "Administrator", FormMethod.Post))
+{
+    if (ViewBag.Valid != "" && ViewBag.Valid != null)
+    {
+        @Html.HiddenFor(m => m.ResultType)
+        @Html.HiddenFor(m => m.ResultDate)
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">大奖</div>
+                    <div class="card-body card-block">
+                        <div class="form-group">
+                            <label for="cc-payment" class="control-label mb-1">头奖</label>
+                            @Html.TextBoxFor(m => m.F1, new { placeholder = "头奖", @Class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label for="cc-payment" class="control-label mb-1">二奖</label>
+                            @Html.TextBoxFor(m => m.F2, new { placeholder = "二奖", @Class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label for="cc-payment" class="control-label mb-1">三奖</label>
+                            @Html.TextBoxFor(m => m.F3, new { placeholder = "三奖", @Class = "form-control" })
+                        </div>
+                    </div>
+
+
+                    <div class="card-header">Bonus</div>
+                    <div class="card-body card-block">
+                        <div class="form-group">
+                            <label for="cc-payment" class="control-label mb-1">Bonus</label>
+                            @Html.TextBoxFor(m => m.F_3D_1, new { placeholder = "Bonus", @Class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label for="cc-payment" class="control-label mb-1">Bonus</label>
+                            @Html.TextBoxFor(m => m.F_3D_2, new { placeholder = "Bonus", @Class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label for="cc-payment" class="control-label mb-1">Bonus</label>
+                            @Html.TextBoxFor(m => m.F_3D_3, new { placeholder = "Bonus", @Class = "form-control" })
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">入围奖</div>
+                    <div class="card-body card-block">
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.S1, new { placeholder = "入围奖", @Class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.S2, new { placeholder = "入围奖", @Class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.S3, new { placeholder = "入围奖", @Class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.S4, new { placeholder = "入围奖", @Class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.S5, new { placeholder = "入围奖", @Class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.S6, new { placeholder = "入围奖", @Class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.S7, new { placeholder = "入围奖", @Class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.S8, new { placeholder = "入围奖", @Class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.S9, new { placeholder = "入围奖", @Class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.S10, new { placeholder = "入围奖", @Class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">安慰奖</div>
+                    <div class="card-body card-block">
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.T1, new { placeholder = "安慰奖", @Class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.T2, new { placeholder = "安慰奖", @Class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.T3, new { placeholder = "安慰奖", @Class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.T4, new { placeholder = "安慰奖", @Class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.T5, new { placeholder = "安慰奖", @Class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.T6, new { placeholder = "安慰奖", @Class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.T7, new { placeholder = "安慰奖", @Class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.T8, new { placeholder = "安慰奖", @Class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.T9, new { placeholder = "安慰奖", @Class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => m.T10, new { placeholder = "安慰奖", @Class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="au-btn au-btn--block au-btn--green m-b-20" id="form_submit" type="submit">Submit</button>
+
+
+        </div>
+    }
+
+
+
+}

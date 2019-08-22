@@ -1,7 +1,8 @@
-﻿
+﻿@model _4D.Models.Administrator
 @{
     Layout = null;
 }
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,25 +18,25 @@
     <title>Login</title>
 
     <!-- Fontfaces CSS-->
-    <link href="~/Content/css/font-face.css" rel="stylesheet" media="all">
-    <link href="~/Content/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-    <link href="~/Content/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
-    <link href="~/Content/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="~/Content/Admin/css/font-face.css" rel="stylesheet" media="all">
+    <link href="~/Content/Admin/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="~/Content/Admin/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="~/Content/Admin/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
     <!-- Bootstrap CSS-->
-    <link href="~/Content/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+    <link href="~/Content/Admin/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
 
     <!-- Vendor CSS-->
-    <link href="~/Content/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
-    <link href="~/Content/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
-    <link href="~/Content/vendor/wow/animate.css" rel="stylesheet" media="all">
-    <link href="~/Content/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
-    <link href="~/Content/vendor/slick/slick.css" rel="stylesheet" media="all">
-    <link href="~/Content/vendor/select2/select2.min.css" rel="stylesheet" media="all">
-    <link href="~/Content/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+    <link href="~/Content/Admin/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="~/Content/Admin/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="~/Content/Admin/vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="~/Content/Admin/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="~/Content/Admin/vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="~/Content/Admin/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="~/Content/Admin/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
 
     <!-- Main CSS-->
-    <link href="~/Content/css/theme.css" rel="stylesheet" media="all">
+    <link href="~/Content/Admin/css/theme.css" rel="stylesheet" media="all">
 
 </head>
 
@@ -47,22 +48,23 @@
                     <div class="login-content">
                         <div class="login-logo">
                             <a href="#">
-                                <img src="~/Content/images/icon/logo.png" alt="CoolAdmin" style="width:150px;">
+                                <img src="~/Content/Admin/images/icon/logo.png" alt="CoolAdmin">
                             </a>
                         </div>
                         <div class="login-form">
-                            <form action="" method="post">
+                            @using (Html.BeginForm("Login", "Administrator", FormMethod.Post))
+                            {
                                 <div class="form-group">
                                     <label>Login ID</label>
-                                    <input class="au-input au-input--full" type="text" name="email" placeholder="Login ID">
+                                    @Html.TextBoxFor(m => m.LoginID, new { placeholder = "Login ID", @Class = "au-input au-input--full" }) 
                                 </div>
                                 <div class="form-group">
                                     <label>Password</label>
-                                    <input class="au-input au-input--full" type="password" name="password" placeholder="Password">
-                                </div> 
-                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">sign in</button>
-                                 
-                            </form> 
+                                    @Html.PasswordFor(m => m.Password, new { placeholder = "Login ID", @Class = "au-input au-input--full" }) 
+                                </div>
+                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">Login</button>
+
+                            }
                         </div>
                     </div>
                 </div>
@@ -72,28 +74,28 @@
     </div>
 
     <!-- Jquery JS-->
-    <script src="~/Content/vendor/jquery-3.2.1.min.js"></script>
+    <script src="~/Content/Admin/vendor/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap JS-->
-    <script src="~/Content/vendor/bootstrap-4.1/popper.min.js"></script>
-    <script src="~/Content/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <script src="~/Content/Admin/vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="~/Content/Admin/vendor/bootstrap-4.1/bootstrap.min.js"></script>
     <!-- Vendor JS       -->
-    <script src="~/Content/vendor/slick/slick.min.js">
+    <script src="~/Content/Admin/vendor/slick/slick.min.js">
     </script>
-    <script src="~/Content/vendor/wow/wow.min.js"></script>
-    <script src="~/Content/vendor/animsition/animsition.min.js"></script>
-    <script src="~/Content/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+    <script src="~/Content/Admin/vendor/wow/wow.min.js"></script>
+    <script src="~/Content/Admin/vendor/animsition/animsition.min.js"></script>
+    <script src="~/Content/Admin/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
     </script>
-    <script src="~/Content/vendor/counter-up/jquery.waypoints.min.js"></script>
-    <script src="~/Content/vendor/counter-up/jquery.counterup.min.js">
+    <script src="~/Content/Admin/vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="~/Content/Admin/vendor/counter-up/jquery.counterup.min.js">
     </script>
-    <script src="~/Content/vendor/circle-progress/circle-progress.min.js"></script>
-    <script src="~/Content/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="~/Content/vendor/chartjs/Chart.bundle.min.js"></script>
-    <script src="~/Content/vendor/select2/select2.min.js">
+    <script src="~/Content/Admin/vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="~/Content/Admin/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="~/Content/Admin/vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="~/Content/Admin/vendor/select2/select2.min.js">
     </script>
 
     <!-- Main JS-->
-    <script src="~/Content/js/main.js"></script>
+    <script src="~/Content/Admin/js/main.js"></script>
 
 </body>
 

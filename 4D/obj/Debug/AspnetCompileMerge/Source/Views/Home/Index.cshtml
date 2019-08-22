@@ -1,85 +1,679 @@
-﻿@{
+﻿@using _4D.Controllers
+@model _4D.Models.Results
+@{
     Layout = null;
     ViewBag.Title = "4D Hit";
 }
 
 
 
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>4D</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The most complete 4D result site Singapore and Malaysia, live result, 3D 4D 5D 6D Jackpot all in one website.">
+    <meta name="keywords" content="4D Result, 4D live, Toto 4D, Magnum, Damacai, Lottery Result, Singapore 4D, Sabah 4D, Sandakan 4d, 4D Past Result, Cashsweep">
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="~/Content/V2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/V2/css/compiled-4.8.0.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/V2/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/V2/css/main.css">
+    <!-- End CSS -->
+    <!-- JS -->
+    <script type="text/javascript" src="~/Content/V2/js/jquery-3.3.0.min.js"></script>
+    <script type="text/javascript" src="~/Content/V2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Content/V2/js/main.js"></script>
+    <!-- End JS -->
+</head>
+
+<body>
+    <!--Navbar-->
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <!-- Navbar brand -->
+                <a class="navbar-brand" href="#"><img src="~/Content/images/icon/logo-mini.png"></a>
+                <!-- Collapse button -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- Collapsible content -->
+                <div class="collapse navbar-collapse" id="basicExampleNav">
+                    <!-- Links -->
+
+
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link">
+                                @Html.TextBoxFor(m => m.ResultDate, new { placeholder = "dd/mm/yyyy", @Class = "form-control", @type = "date" })
+                            </a>
+                        </li>
+                        <li class="nav-item" style="padding:10px">
+                            <button class="au-btn au-btn--block au-btn--green m-b-20" id="form_submit" type="submit" style="padding:5px">Search</button>
+                        </li>
+
+                        <li class="nav-item" style="padding:10px">
+                            <a class="nav-link" href="../Home/Index">3D, 4D</a>
+                        </li>
+
+
+                        <li class="nav-item" style="padding:10px">
+                            <a class="nav-link" href="../Home/Index_Result">5D, 6D</a>
+                        </li>
+                    </ul>
+                    <!-- Links -->
+
+
+                </div>
+                <!-- Collapsible content -->
+            </div>
+        </nav>
+    }
+    <!--/.Navbar-->
+    <div class="container" style="padding-bottom:50px">
+
+
+
+        <div class="row">
+
+            @if(ViewBag.banner != null)
+            {
+                <div class="col-md-12" style=" padding-bottom:5px">
+                    <div class="number_box">
+                        <a href="@ViewBag.banner.UrlPath" target="_blank"><img src="@ViewBag.banner.UploadedPath" style="height:auto;width:100%" /></a>
+                    </div>
+                </div>
+            }
+            
+
+
+                    <div class="col-md-4">
+                        <div class="number_box">
+                            <div class="number_header">
+                                <img src="~/Content/V2/images/4D_magnum.png">
+                                @HomeController.convert_YYYY_MM_DD(ViewBag.LatestDate) (<b>@DateTime.Parse(HomeController.convert_YYYY_MM_DD(ViewBag.LatestDate)).DayOfWeek.ToString().Substring(0, 3).ToUpper()</b>)
+                            </div>
+                            <div class="number_body">
+                                <div class="row align-items-center">
+                                    <div class="col-6">
+                                        <p>头奖</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="special">@ViewBag.Magnum.F1.ToString()</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p>二奖</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="special">@ViewBag.Magnum.F2</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p>三奖</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="special">@ViewBag.Magnum.F3</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="number_table">
+                                <table>
+                                    <tr>
+                                        <td colspan="5" class="td_header">入围奖</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@ViewBag.Magnum.S1</td>
+                                        <td>----</td>
+                                        <td>@ViewBag.Magnum.S2</td>
+                                        <td>@ViewBag.Magnum.S3</td>
+                                        <td>@ViewBag.Magnum.S4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@ViewBag.Magnum.S5</td>
+                                        <td>@ViewBag.Magnum.S6</td>
+                                        <td>@ViewBag.Magnum.S7</td>
+                                        <td>@ViewBag.Magnum.S8</td>
+                                        <td>@ViewBag.Magnum.S9</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>@ViewBag.Magnum.S10</td>
+                                        <td>----</td>
+                                        <td>----</td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="number_table">
+                                <table>
+                                    <tr>
+                                        <td colspan="5" class="td_header">安慰奖</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@ViewBag.Magnum.T1</td>
+                                        <td>@ViewBag.Magnum.T2</td>
+                                        <td>@ViewBag.Magnum.T3</td>
+                                        <td>@ViewBag.Magnum.T4</td>
+                                        <td>@ViewBag.Magnum.T5</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@ViewBag.Magnum.T6</td>
+                                        <td>@ViewBag.Magnum.T7</td>
+                                        <td>@ViewBag.Magnum.T8</td>
+                                        <td>@ViewBag.Magnum.T9</td>
+                                        <td>@ViewBag.Magnum.T10</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="number_box">
+                            <div class="number_header blue">
+                                <img src="~/Content/V2/images/4D_damacai.png">
+                                @HomeController.convert_YYYY_MM_DD(ViewBag.LatestDate) (<b>@DateTime.Parse(HomeController.convert_YYYY_MM_DD(ViewBag.LatestDate)).DayOfWeek.ToString().Substring(0, 3).ToUpper()</b>)
+                            </div>
+                            <div class="number_body">
+                                <div class="row align-items-center">
+                                    <div class="col-6">
+                                        <p>头奖</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="special">@ViewBag.Damacai.F1.ToString() (@ViewBag.Damacai.F_3D_1.ToString())</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p>二奖</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="special">@ViewBag.Damacai.F2 (@ViewBag.Damacai.F_3D_2.ToString())</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p>三奖</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="special">@ViewBag.Damacai.F3 (@ViewBag.Damacai.F_3D_3.ToString())</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="number_table">
+                                <table>
+                                    <tr>
+                                        <td colspan="5" class="td_header">入围奖</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@ViewBag.Damacai.S1</td>
+                                        <td>@ViewBag.Damacai.S2</td>
+                                        <td>@ViewBag.Damacai.S3</td>
+                                        <td>@ViewBag.Damacai.S4</td>
+                                        <td>@ViewBag.Damacai.S5</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@ViewBag.Damacai.S6</td>
+                                        <td>@ViewBag.Damacai.S7</td>
+                                        <td>@ViewBag.Damacai.S8</td>
+                                        <td>@ViewBag.Damacai.S9</td>
+                                        <td>@ViewBag.Damacai.S10</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="number_table">
+                                <table>
+                                    <tr>
+                                        <td colspan="5" class="td_header">安慰奖</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@ViewBag.Damacai.T1</td>
+                                        <td>@ViewBag.Damacai.T2</td>
+                                        <td>@ViewBag.Damacai.T3</td>
+                                        <td>@ViewBag.Damacai.T4</td>
+                                        <td>@ViewBag.Damacai.T5</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@ViewBag.Damacai.T6</td>
+                                        <td>@ViewBag.Damacai.T7</td>
+                                        <td>@ViewBag.Damacai.T8</td>
+                                        <td>@ViewBag.Damacai.T9</td>
+                                        <td>@ViewBag.Damacai.T10</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="number_box">
+                            <div class="number_header light_red">
+                                <img src="~/Content/V2/images/4D_toto.png">
+                                @HomeController.convert_YYYY_MM_DD(ViewBag.LatestDate) (<b>@DateTime.Parse(HomeController.convert_YYYY_MM_DD(ViewBag.LatestDate)).DayOfWeek.ToString().Substring(0, 3).ToUpper()</b>)
+                            </div>
+                            <div class="number_body">
+                                <div class="row align-items-center">
+                                    <div class="col-6">
+                                        <p>头奖</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="special">@ViewBag.Toto.F1.ToString()</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p>二奖</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="special">@ViewBag.Toto.F2</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p>三奖</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="special">@ViewBag.Toto.F3</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="number_table">
+                                <table>
+                                    <tr>
+                                        <td colspan="5" class="td_header">入围奖</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@ViewBag.Toto.S1</td>
+                                        <td>@ViewBag.Toto.S2</td>
+                                        <td>@ViewBag.Toto.S3</td>
+                                        <td>@ViewBag.Toto.S4</td>
+                                        <td>----</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@ViewBag.Toto.S5</td>
+                                        <td>@ViewBag.Toto.S6</td>
+                                        <td>@ViewBag.Toto.S7</td>
+                                        <td>@ViewBag.Toto.S8</td>
+                                        <td>----</td>
+                                    </tr>
+                                    <tr></tr>
+                                    <tr>
+                                        <td class=" "></td>
+                                        <td>@ViewBag.Toto.S9</td>
+                                        <td>----</td>
+                                        <td>@ViewBag.Toto.S10</td>
+                                        <td class=" "></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="number_table">
+                                <table>
+                                    <tr>
+                                        <td colspan="5" class="td_header">安慰奖</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@ViewBag.Toto.T1</td>
+                                        <td>@ViewBag.Toto.T2</td>
+                                        <td>@ViewBag.Toto.T3</td>
+                                        <td>@ViewBag.Toto.T4</td>
+                                        <td>@ViewBag.Toto.T5</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@ViewBag.Toto.T6</td>
+                                        <td>@ViewBag.Toto.T7</td>
+                                        <td>@ViewBag.Toto.T8</td>
+                                        <td>@ViewBag.Toto.T9</td>
+                                        <td>@ViewBag.Toto.T10</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-4">
+                        <div class="number_box">
+                            <div class="number_header light_blue">
+                                <img src="~/Content/V2/images/4D_singapore.png">
+                                @HomeController.convert_YYYY_MM_DD(ViewBag.LatestDate) (<b>@DateTime.Parse(HomeController.convert_YYYY_MM_DD(ViewBag.LatestDate)).DayOfWeek.ToString().Substring(0, 3).ToUpper()</b>)
+                            </div>
+                            <div class="number_body">
+                                <div class="row align-items-center">
+                                    <div class="col-6">
+                                        <p>头奖</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="special">@ViewBag.Singapore.F1</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p>二奖</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="special">@ViewBag.Singapore.F2</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p>三奖</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="special">@ViewBag.Singapore.F3</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="number_table">
+                                <table>
+                                    <tr>
+                                        <td colspan="5" class="td_header">入围奖</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@ViewBag.Singapore.S1</td>
+                                        <td>@ViewBag.Singapore.S2</td>
+                                        <td>@ViewBag.Singapore.S3</td>
+                                        <td>@ViewBag.Singapore.S4</td>
+                                        <td>@ViewBag.Singapore.S5</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@ViewBag.Singapore.S6</td>
+                                        <td>@ViewBag.Singapore.S7</td>
+                                        <td>@ViewBag.Singapore.S8</td>
+                                        <td>@ViewBag.Singapore.S9</td>
+                                        <td>@ViewBag.Singapore.S10</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="number_table">
+                                <table>
+                                    <tr>
+                                        <td colspan="5" class="td_header">安慰奖</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@ViewBag.Singapore.T1</td>
+                                        <td>@ViewBag.Singapore.T2</td>
+                                        <td>@ViewBag.Singapore.T3</td>
+                                        <td>@ViewBag.Singapore.T4</td>
+                                        <td>@ViewBag.Singapore.T5</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@ViewBag.Singapore.T6</td>
+                                        <td>@ViewBag.Singapore.T7</td>
+                                        <td>@ViewBag.Singapore.T8</td>
+                                        <td>@ViewBag.Singapore.T9</td>
+                                        <td>@ViewBag.Singapore.T10</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-md-4">
+                        <div class="number_box">
+                            <div class="number_header dark_green">
+                                <img src="~/Content/V2/images/4D_cash.png">
+                                @HomeController.convert_YYYY_MM_DD(ViewBag.LatestDate) (<b>@DateTime.Parse(HomeController.convert_YYYY_MM_DD(ViewBag.LatestDate)).DayOfWeek.ToString().Substring(0, 3).ToUpper()</b>)
+                            </div>
+                            <div class="number_body">
+                                <div class="row align-items-center">
+                                    <div class="col-6">
+                                        <p>头奖</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="special">@ViewBag.CashSweep.F1.ToString() (@ViewBag.CashSweep.F_3D_1.ToString())</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p>二奖</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="special">@ViewBag.CashSweep.F2 (@ViewBag.CashSweep.F_3D_2.ToString())</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p>三奖</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="special">@ViewBag.CashSweep.F3 (@ViewBag.CashSweep.F_3D_3.ToString())</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="number_table">
+                                <table>
+                                    <tr>
+                                        <td colspan="5" class="td_header">入围奖</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@ViewBag.CashSweep.S1</td>
+                                        <td>@ViewBag.CashSweep.S2</td>
+                                        <td>@ViewBag.CashSweep.S3</td>
+                                        <td>@ViewBag.CashSweep.S4</td>
+                                        <td>@ViewBag.CashSweep.S5</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@ViewBag.CashSweep.S6</td>
+                                        <td>@ViewBag.CashSweep.S7</td>
+                                        <td>@ViewBag.CashSweep.S8</td>
+                                        <td>@ViewBag.CashSweep.S9</td>
+                                        <td>@ViewBag.CashSweep.S10</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="number_table">
+                                <table>
+                                    <tr>
+                                        <td colspan="5" class="td_header">安慰奖</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@ViewBag.CashSweep.T1</td>
+                                        <td>@ViewBag.CashSweep.T2</td>
+                                        <td>@ViewBag.CashSweep.T3</td>
+                                        <td>@ViewBag.CashSweep.T4</td>
+                                        <td>@ViewBag.CashSweep.T5</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@ViewBag.CashSweep.T6</td>
+                                        <td>@ViewBag.CashSweep.T7</td>
+                                        <td>@ViewBag.CashSweep.T8</td>
+                                        <td>@ViewBag.CashSweep.T9</td>
+                                        <td>@ViewBag.CashSweep.T10</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-4">
+                        <div class="number_box">
+                            <div class="number_header red">
+                                <img src="~/Content/V2/images/4D_88.png">
+                                @HomeController.convert_YYYY_MM_DD(ViewBag.LatestDate) (<b>@DateTime.Parse(HomeController.convert_YYYY_MM_DD(ViewBag.LatestDate)).DayOfWeek.ToString().Substring(0, 3).ToUpper()</b>)
+                            </div>
+                            <div class="number_body">
+                                <div class="row align-items-center">
+                                    <div class="col-6">
+                                        <p>头奖</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="special">@ViewBag.Sabah.F1.ToString() (@ViewBag.Sabah.F_3D_1.ToString())</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p>二奖</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="special">@ViewBag.Sabah.F2 (@ViewBag.Sabah.F_3D_2.ToString())</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p>三奖</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="special">@ViewBag.Sabah.F3 (@ViewBag.Sabah.F_3D_3.ToString())</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="number_table">
+                                <table>
+                                    <tr>
+                                        <td colspan="5" class="td_header">入围奖</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@ViewBag.Sabah.S1</td>
+                                        <td>@ViewBag.Sabah.S2</td>
+                                        <td>@ViewBag.Sabah.S3</td>
+                                        <td>@ViewBag.Sabah.S4</td>
+                                        <td>@ViewBag.Sabah.S5</td>
+                                    </tr>
+                                    <tr>
+                                        <td>----</td>
+                                        <td>----</td>
+                                        <td>@ViewBag.Sabah.S6</td>
+                                        <td>@ViewBag.Sabah.S7</td>
+                                        <td>@ViewBag.Sabah.S8</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>@ViewBag.Sabah.S9</td>
+                                        <td>----</td>
+                                        <td>@ViewBag.Sabah.S10</td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="number_table">
+                                <table>
+                                    <tr>
+                                        <td colspan="5" class="td_header">安慰奖</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@ViewBag.Sabah.T1</td>
+                                        <td>@ViewBag.Sabah.T2</td>
+                                        <td>@ViewBag.Sabah.T3</td>
+                                        <td>@ViewBag.Sabah.T4</td>
+                                        <td>@ViewBag.Sabah.T5</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@ViewBag.Sabah.T6</td>
+                                        <td>@ViewBag.Sabah.T7</td>
+                                        <td>@ViewBag.Sabah.T8</td>
+                                        <td>@ViewBag.Sabah.T9</td>
+                                        <td>@ViewBag.Sabah.T10</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-4">
+                        <div class="number_box">
+                            <div class="number_header green">
+                                <img src="~/Content/V2/images/4D_stc.png">
+                                @HomeController.convert_YYYY_MM_DD(ViewBag.LatestDate) (<b>@DateTime.Parse(HomeController.convert_YYYY_MM_DD(ViewBag.LatestDate)).DayOfWeek.ToString().Substring(0, 3).ToUpper()</b>)
+                            </div>
+                            <div class="number_body">
+                                <div class="row align-items-center">
+                                    <div class="col-6">
+                                        <p>头奖</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="special">@ViewBag.Sandakan.F1.ToString()</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p>二奖</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="special">@ViewBag.Sandakan.F2</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p>三奖</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="special">@ViewBag.Sandakan.F3</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="number_table">
+                                <table>
+                                    <tr>
+                                        <td colspan="5" class="td_header">入围奖</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@ViewBag.Sandakan.S1</td>
+                                        <td>@ViewBag.Sandakan.S2</td>
+                                        <td>----</td>
+                                        <td>@ViewBag.Sandakan.S3</td>
+                                        <td>----</td>
+                                    </tr>
+                                    <tr>
+                                        <td>----</td>
+                                        <td>@ViewBag.Sandakan.S4</td>
+                                        <td>@ViewBag.Sandakan.S5</td>
+                                        <td>@ViewBag.Sandakan.S6</td>
+                                        <td>@ViewBag.Sandakan.S7</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>@ViewBag.Sandakan.S8</td>
+                                        <td>@ViewBag.Sandakan.S9</td>
+                                        <td>@ViewBag.Sandakan.S10</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="blank"></td>
+                                        <td class="blank"></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="number_table">
+                                <table>
+                                    <tr>
+                                        <td colspan="5" class="td_header">安慰奖</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@ViewBag.Sandakan.T1</td>
+                                        <td>@ViewBag.Sandakan.T2</td>
+                                        <td>@ViewBag.Sandakan.T3</td>
+                                        <td>@ViewBag.Sandakan.T4</td>
+                                        <td>@ViewBag.Sandakan.T5</td>
+                                    </tr>
+                                    <tr>
+                                        <td>@ViewBag.Sandakan.T6</td>
+                                        <td>@ViewBag.Sandakan.T7</td>
+                                        <td>@ViewBag.Sandakan.T8</td>
+                                        <td>@ViewBag.Sandakan.T9</td>
+                                        <td>@ViewBag.Sandakan.T10</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+            </div>
+
     <style>
-        .table-header {
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
             width: 100%;
+            background-color: black;
+            color: white;
             text-align: center;
+            margin-top:50px;
         }
     </style>
-    <title>4D Hits</title>
-</head>
-<body> 
 
-
-    <div style="width:500px;text-align:center;">
-        <table class="table-header">
-            <tr>
-                <td>@ViewBag.Magnum.ResultType (@ViewBag.Magnum.ResultDate)</td>
-            </tr>
-        </table>
-
-        <table class="table-header">
-            <tr>
-                <td>@ViewBag.Magnum.F1</td>
-                <td>@ViewBag.Magnum.F2</td>
-                <td>@ViewBag.Magnum.F3</td>
-            </tr>
-        </table>
-
-
-        <table class="table-header">
-            <tr>
-                <td>@ViewBag.Magnum.S1</td>
-                <td>@ViewBag.Magnum.S2</td>
-                <td>@ViewBag.Magnum.S3</td>
-                <td>@ViewBag.Magnum.S4</td>
-                <td>@ViewBag.Magnum.S5</td>
-            </tr>
-            <tr>
-                <td>@ViewBag.Magnum.S6</td>
-                <td>@ViewBag.Magnum.S7</td>
-                <td>@ViewBag.Magnum.S8</td>
-                <td>@ViewBag.Magnum.S9</td>
-                <td>@ViewBag.Magnum.S10</td>
-            </tr>
-        </table>
-
-
-        <table class="table-header">
-            <tr>
-                <td>@ViewBag.Magnum.T1</td>
-                <td>@ViewBag.Magnum.T2</td>
-                <td>@ViewBag.Magnum.T3</td>
-                <td>@ViewBag.Magnum.T4</td>
-                <td>@ViewBag.Magnum.T5</td>
-            </tr>
-            <tr>
-                <td>@ViewBag.Magnum.T6</td>
-                <td>@ViewBag.Magnum.T7</td>
-                <td>@ViewBag.Magnum.T8</td>
-                <td>@ViewBag.Magnum.T9</td>
-                <td>@ViewBag.Magnum.T10</td>
-            </tr>
-        </table>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <div class="footer">  
+        <p>&copy; 2019 4dhit.com. All rights reserved | 18+</p>
+    </div> 
 </body>
+
 </html>
 
 
- 
+
+
+
+
+
+

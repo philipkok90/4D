@@ -1,0 +1,125 @@
+/* poppins-regular - latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/poppins-v6-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Poppins Regular'), local('Poppins-Regular'),
+       url('../fonts/poppins-v6-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/poppins-v6-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/poppins-v6-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/poppins-v6-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/poppins-v6-latin-regular.svg#Poppins') format('svg'); /* Legacy iOS */
+}
+/* poppins-italic - latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: italic;
+  font-weight: 400;
+  src: url('../fonts/poppins-v6-latin-italic.eot'); /* IE9 Compat Modes */
+  src: local('Poppins Italic'), local('Poppins-Italic'),
+       url('../fonts/poppins-v6-latin-italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/poppins-v6-latin-italic.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/poppins-v6-latin-italic.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/poppins-v6-latin-italic.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/poppins-v6-latin-italic.svg#Poppins') format('svg'); /* Legacy iOS */
+}
+/* poppins-500 - latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../fonts/poppins-v6-latin-500.eot'); /* IE9 Compat Modes */
+  src: local('Poppins Medium'), local('Poppins-Medium'),
+       url('../fonts/poppins-v6-latin-500.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/poppins-v6-latin-500.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/poppins-v6-latin-500.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/poppins-v6-latin-500.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/poppins-v6-latin-500.svg#Poppins') format('svg'); /* Legacy iOS */
+}
+/* poppins-700 - latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/poppins-v6-latin-700.eot'); /* IE9 Compat Modes */
+  src: local('Poppins Bold'), local('Poppins-Bold'),
+       url('../fonts/poppins-v6-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/poppins-v6-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/poppins-v6-latin-700.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/poppins-v6-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/poppins-v6-latin-700.svg#Poppins') format('svg'); /* Legacy iOS */
+}
+
+html, body{
+    font-family: 'Poppins', "微软雅黑", STXihei, "华文细黑", sans-serif;
+}
+
+.ul_title{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0;
+    display: table;
+    background-color: #222;
+    position: relative;
+    width: 100%;
+}
+
+.ul_title li{
+    padding: 5px 10px;
+    font-size: 12px;
+    width: 20%;
+    display: table-cell;
+    vertical-align: middle;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    text-align: center;
+    color: white;
+}
+
+.ul_title > li:nth-child(2){
+    width: 60%;
+}
+
+.ul_title li img{
+    height: 20px;
+}
+
+.ul_title li a{
+    color: white;
+}
+
+.number_table{
+    width: 100%;
+    background-color: #eee;
+}
+
+.number_table td{
+    border: 1px solid white;
+    text-align: center;
+    padding: 3px 5px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.number_table td a{
+    color: #333;
+}
+
+.number_table .tr_header td{
+    color: #111;
+    background-color: #fbe83d;
+    font-size: 12px;
+}
+
+.number_box{
+    margin-bottom: 20px;
+}
+
+.small_header{
+    white-space: nowrap;
+    width: 1%;
+    background-color: #fbe83d;
+    padding: 3px 10px !important;
+}

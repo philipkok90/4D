@@ -82,3 +82,7 @@ C:\Users\user\Desktop\Looyee\Triple Link\4D\4D\4D\bin\EntityFramework.dll
 C:\Users\user\Desktop\Looyee\Triple Link\4D\4D\4D\bin\EntityFramework.SqlServer.dll
 C:\Users\user\Desktop\Looyee\Triple Link\4D\4D\4D\bin\EntityFramework.xml
 C:\Users\user\Desktop\Looyee\Triple Link\4D\4D\4D\bin\EntityFramework.SqlServer.xml
+C:\Users\user\Desktop\Looyee\Triple Link\4D\4D\4D\bin\PagedList.dll
+C:\Users\user\Desktop\Looyee\Triple Link\4D\4D\4D\bin\PagedList.Mvc.dll
+C:\Users\user\Desktop\Looyee\Triple Link\4D\4D\4D\bin\PagedList.xml
+C:\Users\user\Desktop\Looyee\Triple Link\4D\4D\4D\bin\PagedList.Mvc.xml

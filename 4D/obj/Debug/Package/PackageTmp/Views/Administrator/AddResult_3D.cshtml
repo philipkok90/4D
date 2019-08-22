@@ -1,0 +1,67 @@
+﻿@model _4D.Models.Results
+@{
+    ViewBag.Title = "Add Result 3D";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("AddResult_3D", "Administrator", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-4">
+            @Html.DropDownListFor(m => m.ResultType, new List<SelectListItem>
+                { new SelectListItem{Text="DAMACAI", Value="DAMACAI"},
+                   new SelectListItem{Text="CASH SWEEP", Value="CASH SWEEP"},
+                   new SelectListItem{Text="SABAH LOTTO 88", Value="SABAH LOTTO 88"}
+                }, new { @class = "form-control" })
+        </div>
+
+        <div class="col-md-4">
+            @Html.TextBoxFor(m => m.ResultDate, new { placeholder = "dd/mm/yyyy", @Class = "form-control", @type = "date" })
+
+        </div>
+
+        <div class="col-md-4">
+            <button class="au-btn au-btn--block au-btn--green m-b-20" id="form_submit" type="submit">Search</button>
+        </div>
+
+    </div>
+}
+<br />
+@using (Html.BeginForm("AddResultRecord_3D", "Administrator", FormMethod.Post))
+{
+    if (ViewBag.Valid != "" && ViewBag.Valid != null)
+    {
+        @Html.HiddenFor(m => m.ResultType)
+        @Html.HiddenFor(m => m.ResultDate)
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card"> 
+                    <div class="card-body card-block">
+                        <div class="form-group">
+                            <label for="cc-payment" class="control-label mb-1">头奖</label>
+                            @Html.TextBoxFor(m => m.F_3D_1, new { placeholder = "头奖", @Class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label for="cc-payment" class="control-label mb-1">二奖</label>
+                            @Html.TextBoxFor(m => m.F_3D_2, new { placeholder = "二奖", @Class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label for="cc-payment" class="control-label mb-1">三奖</label>
+                            @Html.TextBoxFor(m => m.F_3D_3, new { placeholder = "三奖", @Class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             
+
+            <button class="au-btn au-btn--block au-btn--green m-b-20" id="form_submit" type="submit">Submit</button>
+
+
+        </div>
+    }
+
+
+
+}
